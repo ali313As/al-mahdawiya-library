@@ -1,0 +1,234 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+
+/* رأس الموقع */
+
+.header {
+    background: #0f172a;
+    color: white;
+    padding: 25px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.logo h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.logo p {
+    margin-top: 8px;
+    color: #cbd5e1;
+}
+
+
+
+nav a {
+
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 17px;
+
+}
+
+
+
+nav a:hover {
+
+    color: #38bdf8;
+
+}
+
+
+
+/* الواجهة الرئيسية */
+
+.hero {
+
+    text-align: center;
+    padding: 70px 20px;
+
+}
+
+
+.hero h2 {
+
+    font-size: 38px;
+
+}
+
+
+
+.hero p {
+
+    font-size: 20px;
+    color: #64748b;
+
+}
+
+
+.hero input {
+
+    margin-top: 30px;
+    width: 80%;
+    max-width: 600px;
+    padding: 18px;
+    border-radius: 15px;
+    border: 1px solid #cbd5e1;
+    font-size: 18px;
+
+}
+
+
+
+/* التصنيفات */
+
+.categories {
+
+    padding: 30px 6%;
+
+}
+
+
+
+.category-list {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 20px;
+
+}
+
+
+
+.category {
+
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 20px #e2e8f0;
+
+}
+
+
+
+/* الكتب */
+
+.books {
+
+    padding:40px 6%;
+
+}
+
+
+.book-container {
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+
+}
+
+
+
+.book-card {
+
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px #e2e8f0;
+
+}
+
+
+
+.cover {
+
+    height:220px;
+    background:#1e3a8a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:15px;
+    font-size:25px;
+
+}
+
+
+
+button {
+
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+
+}
+
+
+button:hover {
+
+    background:#1d4ed8;
+
+}
+
+
+
+/* التذييل */
+
+footer {
+
+    text-align:center;
+    padding:30px;
+    background:#0f172a;
+    color:white;
+
+}
+
+
+
+/* للموبايل */
+
+@media(max-width:700px){
+
+.header{
+
+    justify-content:center;
+    text-align:center;
+
+}
+
+
+nav{
+
+    margin-top:20px;
+
+}
+
+
+.hero h2{
+
+    font-size:28px;
+
+}
+
+}
