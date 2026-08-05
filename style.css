@@ -2,55 +2,66 @@
     box-sizing: border-box;
 }
 
+
 body {
+
     margin: 0;
-    font-family: "Arial", sans-serif;
+    font-family: "Tahoma", Arial, sans-serif;
     background: #f8fafc;
     color: #1e293b;
+
 }
 
 
-/* رأس الموقع */
+/* الشريط العلوي */
 
-.header {
-    background: #0f172a;
-    color: white;
-    padding: 25px 6%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.top-bar {
+
+    background: linear-gradient(135deg,#071a33,#12355b);
+    color:white;
+    padding:25px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+
 }
 
 
-.logo h1 {
-    margin: 0;
-    font-size: 32px;
+
+.brand h1 {
+
+    margin:0;
+    font-size:32px;
+
 }
 
-.logo p {
-    margin-top: 8px;
-    color: #cbd5e1;
+
+.brand p {
+
+    color:#cbd5e1;
+
 }
 
 
 
 nav a {
 
-    color: white;
-    text-decoration: none;
-    margin: 10px;
-    font-size: 17px;
+    color:white;
+    text-decoration:none;
+    margin:12px;
+    font-size:17px;
+    transition:.3s;
 
 }
-
 
 
 nav a:hover {
 
-    color: #38bdf8;
+    color:#d4af37;
 
 }
+
 
 
 
@@ -58,15 +69,25 @@ nav a:hover {
 
 .hero {
 
-    text-align: center;
-    padding: 70px 20px;
+    text-align:center;
+    padding:90px 20px;
+
+    background:
+    linear-gradient(
+    rgba(7,26,51,.9),
+    rgba(7,26,51,.9)
+    );
+
+    color:white;
 
 }
 
 
+
 .hero h2 {
 
-    font-size: 38px;
+    font-size:45px;
+    margin-bottom:20px;
 
 }
 
@@ -74,72 +95,170 @@ nav a:hover {
 
 .hero p {
 
-    font-size: 20px;
-    color: #64748b;
+    font-size:21px;
+    color:#e2e8f0;
 
 }
 
 
-.hero input {
 
-    margin-top: 30px;
-    width: 80%;
-    max-width: 600px;
-    padding: 18px;
-    border-radius: 15px;
-    border: 1px solid #cbd5e1;
-    font-size: 18px;
+.search-box {
+
+    margin-top:40px;
 
 }
+
+
+
+.search-box input {
+
+
+    width:80%;
+    max-width:700px;
+
+    padding:20px;
+
+    border-radius:30px;
+
+    border:none;
+
+    font-size:18px;
+
+    outline:none;
+
+}
+
+
+
+
+
+/* الاحصائيات */
+
+.stats {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+
+    padding:50px 7%;
+
+
+}
+
+
+
+.stats div {
+
+
+    background:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+.stats h3 {
+
+    color:#12355b;
+    font-size:35px;
+    margin:0;
+
+}
+
+
 
 
 
 /* التصنيفات */
 
-.categories {
 
-    padding: 30px 6%;
+.categories,
+.featured-books {
 
-}
-
-
-
-.category-list {
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap: 20px;
+    padding:50px 7%;
 
 }
 
 
 
-.category {
+.categories h2,
+.featured-books h2 {
+
+    font-size:32px;
+
+}
+
+
+
+
+.category-grid {
+
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.category-grid div {
+
 
     background:white;
-    padding:25px;
-    border-radius:20px;
+
+    padding:35px;
+
     text-align:center;
-    box-shadow:0 5px 20px #e2e8f0;
+
+    border-radius:20px;
+
+    font-size:20px;
+
+    transition:.3s;
+
 
 }
+
+
+.category-grid div:hover {
+
+
+    transform:translateY(-8px);
+
+}
+
+
 
 
 
 /* الكتب */
 
-.books {
 
-    padding:40px 6%;
+.books-container {
 
-}
-
-
-.book-container {
 
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:30px;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:35px;
+
 
 }
 
@@ -147,26 +266,52 @@ nav a:hover {
 
 .book-card {
 
+
     background:white;
+
     padding:25px;
-    border-radius:20px;
+
+    border-radius:25px;
+
     text-align:center;
-    box-shadow:0 10px 25px #e2e8f0;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+
+    transition:.3s;
+
 
 }
 
 
 
-.cover {
+.book-card:hover {
 
-    height:220px;
-    background:#1e3a8a;
+    transform:translateY(-10px);
+
+}
+
+
+
+.book-cover {
+
+
+    height:260px;
+
+    background:
+    linear-gradient(135deg,#12355b,#d4af37);
+
     color:white;
+
     display:flex;
-    justify-content:center;
+
     align-items:center;
-    border-radius:15px;
-    font-size:25px;
+
+    justify-content:center;
+
+    border-radius:18px;
+
+    font-size:30px;
 
 }
 
@@ -174,43 +319,56 @@ nav a:hover {
 
 button {
 
-    background:#2563eb;
+
+    background:#12355b;
+
     color:white;
+
     border:none;
-    padding:12px 25px;
-    border-radius:10px;
+
+    padding:14px 35px;
+
+    border-radius:30px;
+
     cursor:pointer;
-    font-size:16px;
+
+    font-size:17px;
 
 }
+
 
 
 button:hover {
 
-    background:#1d4ed8;
+    background:#d4af37;
 
 }
 
 
 
-/* التذييل */
+
 
 footer {
 
-    text-align:center;
-    padding:30px;
-    background:#0f172a;
+
+    background:#071a33;
+
     color:white;
+
+    text-align:center;
+
+    padding:30px;
 
 }
 
 
 
-/* للموبايل */
+
 
 @media(max-width:700px){
 
-.header{
+
+.top-bar {
 
     justify-content:center;
     text-align:center;
@@ -218,17 +376,11 @@ footer {
 }
 
 
-nav{
+.hero h2 {
 
-    margin-top:20px;
-
-}
-
-
-.hero h2{
-
-    font-size:28px;
+    font-size:30px;
 
 }
+
 
 }
