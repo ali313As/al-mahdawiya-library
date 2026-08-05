@@ -1,321 +1,529 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المكتبة المهدوية الرقمية | الموسوعة الشاملة</title>
+    <meta name="description" content="مكتبة رقمية شاملة تُعنى بنشر تراث أهل البيت عليهم السلام والعلوم المهدوية بتصميم عصري يسهل القراءة والبحث.">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --bg-main: #0d0f12;
+            --bg-card: #151821;
+            --bg-card-hover: #1c202c;
+            --border-color: #262b3a;
+            --border-gold: #c5a059;
+            --gold-primary: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-gold: #e5c158;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
 
-<title>المكتبة المهدوية الرقمية</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
-<link rel="stylesheet" href="style.css">
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
 
+        /* خلفية مزخرفة هادئة */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- شريط النافبار --- */
+        .navbar {
+            background: rgba(13, 15, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--gold-primary), #8a6d1c);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-gold);
+        }
+
+        /* --- الهيرو / القسم الرئيسي --- */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(180deg, #ffffff 30%, var(--text-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        /* شريط البحث الفاخر */
+        .search-wrapper {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 6px 16px;
+            box-shadow: var(--shadow-main);
+            transition: all 0.3s;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--border-gold);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .search-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-main);
+            font-size: 1.05rem;
+            font-family: 'Cairo', sans-serif;
+            padding: 12px 10px;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--gold-primary), #a37f22);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 24px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: transform 0.2s;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.03);
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .stat-item span {
+            color: var(--text-gold);
+            font-weight: 700;
+            margin-left: 5px;
+        }
+
+        /* --- الأقسام والشبكات --- */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px 0 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -13px;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gold-primary);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .view-all:hover {
+            color: var(--text-gold);
+        }
+
+        /* شبكة الكتب (Grid) */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-main);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .card-author {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            width: fit-content;
+        }
+
+        /* شبكة التصنيفات */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            border-color: var(--border-gold);
+            background: var(--bg-card-hover);
+        }
+
+        .cat-info h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .cat-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .cat-badge {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--text-gold);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* الفوتر */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        /* التجاوب مع الهاتف */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .nav-links { display: none; }
+            .stats-bar { flex-direction: column; gap: 8px; }
+            .grid-cards { grid-template-columns: 1fr; }
+            .categories-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-
-
 <body>
 
-
-<!-- الشريط العلوي -->
-
-<header class="navbar">
-
-    <div class="logo">
-
-        <h1>المكتبة المهدوية</h1>
-
-        <span>
-        موسوعة التراث الشيعي الرقمية
-        </span>
-
-    </div>
-
-
-    <nav>
-
-        <a href="#">الرئيسية</a>
-        <a href="#">الكتب</a>
-        <a href="#">المؤلفون</a>
-        <a href="#">المفضلة</a>
-
+    <!-- النافبار -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="brand">
+                <div class="brand-icon">📚</div>
+                <div class="brand-title">المكتبة المهدوية</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">الرئيسية</a></li>
+                <li><a href="#books">الكتب</a></li>
+                <li><a href="#categories">التصنيفات</a></li>
+                <li><a href="#authors">المؤلفون</a></li>
+            </ul>
+        </div>
     </nav>
 
+    <main class="container">
+        <!-- الهيرو والبحث -->
+        <section class="hero">
+            <h1 class="hero-title">المكتبة المهدوية الرقمية</h1>
+            <p class="hero-subtitle">موسوعة رقمية شاملة تعنى بنشر تراث وروايات أهل البيت عليهم السلام بتصميم عصري وبحث سريع.</p>
 
-</header>
+            <div class="search-wrapper">
+                <div class="search-box">
+                    <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن كتاب، رواية، أو مؤلف..." onkeyup="searchFunction()">
+                    <button class="search-btn">بحث</button>
+                </div>
+            </div>
 
+            <div class="stats-bar">
+                <div class="stat-item">الكتب: <span id="count-books">5</span></div>
+                <div class="stat-item">المجلدات: <span>12</span></div>
+                <div class="stat-item">التصنيفات: <span>6</span></div>
+            </div>
+        </section>
 
+        <!-- قسم الكتب الأكثر قراءة -->
+        <section id="books">
+            <div class="section-header">
+                <h2 class="section-title">الكتب الأبرز</h2>
+                <a href="#" class="view-all">عرض الكل ←</a>
+            </div>
 
+            <div class="grid-cards" id="booksGrid">
+                <!-- كتاب 1 -->
+                <div class="card" onclick="alert('جاري فتح الكتاب...')">
+                    <div>
+                        <div class="card-title">أصول الكافي</div>
+                        <div class="card-author">الشيخ الكليني</div>
+                    </div>
+                    <div class="card-tag">الحديث وعلومه / مصادر الحديث</div>
+                </div>
 
+                <!-- كتاب 2 -->
+                <div class="card" onclick="alert('جاري فتح الكتاب...')">
+                    <div>
+                        <div class="card-title">كمال الدين وتمام النعمة</div>
+                        <div class="card-author">الشيخ الصدوق</div>
+                    </div>
+                    <div class="card-tag">العقائد والمهدوية</div>
+                </div>
 
-<!-- الواجهة الرئيسية -->
+                <!-- كتاب 3 -->
+                <div class="card" onclick="alert('جاري فتح الكتاب...')">
+                    <div>
+                        <div class="card-title">كتاب الغيبة</div>
+                        <div class="card-author">محمد بن إبراهيم النعماني</div>
+                    </div>
+                    <div class="card-tag">الغيبة والظهور</div>
+                </div>
 
+                <!-- كتاب 4 -->
+                <div class="card" onclick="alert('جاري فتح الكتاب...')">
+                    <div>
+                        <div class="card-title">كتاب الغيبة</div>
+                        <div class="card-author">الشيخ الطوسي</div>
+                    </div>
+                    <div class="card-tag">المصادر الحديثية المهدوية</div>
+                </div>
 
-<section class="hero">
+                <!-- كتاب 5 -->
+                <div class="card" onclick="alert('جاري فتح الكتاب...')">
+                    <div>
+                        <div class="card-title">بحار الأنوار</div>
+                        <div class="card-author">العلامة المجلسي</div>
+                    </div>
+                    <div class="card-tag">موسوعات الحديث</div>
+                </div>
+            </div>
+        </section>
 
+        <!-- قسم التصنيفات -->
+        <section id="categories">
+            <div class="section-header">
+                <h2 class="section-title">تصفح حسب التصنيف</h2>
+                <a href="#" class="view-all">عرض الكل ←</a>
+            </div>
 
-    <div class="hero-content">
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="cat-info">
+                        <h4>الحديث وعلومه</h4>
+                        <p>مصادر الحديث الشريف والأخبار</p>
+                    </div>
+                    <div class="cat-badge">1,344</div>
+                </div>
 
+                <div class="category-card">
+                    <div class="cat-info">
+                        <h4>العقائد والكلام</h4>
+                        <p>أصول الدين والأبحاث العقائدية</p>
+                    </div>
+                    <div class="cat-badge">623</div>
+                </div>
 
-        <h2>
-        بين يديك كنوز العلم والمعرفة
-        </h2>
+                <div class="category-card">
+                    <div class="cat-info">
+                        <h4>التاريخ والسيرة</h4>
+                        <p>سيرة المعصومين عليهم السلام</p>
+                    </div>
+                    <div class="cat-badge">970</div>
+                </div>
 
+                <div class="category-card">
+                    <div class="cat-info">
+                        <h4>الأخلاق والأدعية</h4>
+                        <p>المناجاة والزيارات والأدعية</p>
+                    </div>
+                    <div class="cat-badge">263</div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <p>
-        مكتبة رقمية حديثة تجمع الكتب والروايات والمصادر الإسلامية في مكان واحد
-        </p>
-
-
-
-        <div class="hero-buttons">
-
-            <button>
-            دخول المكتبة
-            </button>
-
-
-            <button>
-            استكشف الكتب
-            </button>
-
-
+    <footer>
+        <div class="container">
+            <p>جميع الحقوق محفوظة © المكتبة المهدوية الرقمية 2026</p>
         </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- البحث -->
-
-
-<section class="search-section">
-
-
-<h2>
-ابحث في آلاف الكتب والروايات
-</h2>
-
-
-<div class="search-box">
-
-<input 
-type="search"
-placeholder="اكتب اسم كتاب أو رواية أو مؤلف...">
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- الأقسام -->
-
-
-<section class="categories">
-
-
-<h2>
-استكشف الأقسام
-</h2>
-
-
-<div class="category-container">
-
-
-<div class="category-card">
-📚 الحديث الشريف
-</div>
-
-
-<div class="category-card">
-⭐ الإمام المهدي
-</div>
-
-
-<div class="category-card">
-📖 العقائد
-</div>
-
-
-<div class="category-card">
-🕌 التفسير
-</div>
-
-
-<div class="category-card">
-✒️ التاريخ والسير
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- إحصائيات المكتبة -->
-
-
-<section class="library-info">
-
-
-<div>
-
-<h3>
-0
-</h3>
-
-<p>
-كتاب
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-0
-</h3>
-
-<p>
-رواية
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-0
-</h3>
-
-<p>
-مؤلف
-</p>
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- الكتب -->
-
-
-<section class="featured">
-
-
-<h2>
-كتب مميزة
-</h2>
-
-
-
-<div class="books-grid">
-
-
-
-<div class="book-card">
-
-<div class="cover">
-
-الكافي
-
-</div>
-
-
-<h3>
-الكافي
-</h3>
-
-
-<p>
-الشيخ الكليني
-</p>
-
-
-</div>
-
-
-
-
-
-
-<div class="book-card">
-
-<div class="cover">
-
-كمال الدين
-
-</div>
-
-
-<h3>
-كمال الدين وتمام النعمة
-</h3>
-
-
-<p>
-الشيخ الصدوق
-</p>
-
-
-</div>
-
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<footer>
-
-<p>
-المكتبة المهدوية الرقمية
-</p>
-
-</footer>
-
-
-
+    </footer>
+
+    <!-- سكربت البحث اللحظي البسيط -->
+    <script>
+        function searchFunction() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('#booksGrid .card');
+            
+            cards.forEach(card => {
+                let title = card.querySelector('.card-title').innerText.toLowerCase();
+                let author = card.querySelector('.card-author').innerText.toLowerCase();
+                
+                if (title.includes(input) || author.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
-
 </html>
