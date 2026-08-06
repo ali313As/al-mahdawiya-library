@@ -1,1 +1,42 @@
-
+[
+  {
+    "id": "osol-kafi-1",
+    "title": "أصول الكافي - الجزء الأول",
+    "author": "الشيخ الكليني",
+    "category": "الحديث",
+    "cover": "📜",
+    "file": "books/osol-kafi-1.json"
+  },
+  {
+    "id": "osol-kafi-2",
+    "title": "أصول الكافي - الجزء الثاني",
+    "author": "الشيخ الكليني",
+    "category": "الحديث",
+    "cover": "📜",
+    "file": "books/osol-kafi-2.json"
+  },
+  {
+    "id": "kamal-aldin",
+    "title": "كمال الدين وتمام النعمة",
+    "author": "الشيخ الصدوق",
+    "category": "العقائد",
+    "cover": "🌙",
+    "file": "books/kamal-aldin.json"
+  },
+  {
+    "id": "numani",
+    "title": "الغيبة للنعماني",
+    "author": "النعماني",
+    "category": "الغيبة",
+    "cover": "📚",
+    "file": "books/numani.json"
+  },
+  {
+    "id": "tusi",
+    "title": "الغيبة للطوسي",
+    "author": "الشيخ الطوسي",
+    "category": "الغيبة",
+    "cover": "⚖️",
+    "file": "books/tusi.json"
+  }
+]
