@@ -648,20 +648,6 @@
         </div>
     </footer>
 
-    <script>
-        function searchBooks() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.querySelectorAll('#booksGrid .book-card');
-            
-            cards.forEach(card => {
-                let text = card.innerText.toLowerCase();
-                if (text.includes(input)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
