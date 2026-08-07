@@ -1,4 +1,12 @@
-let allBooks = [];
+const firebaseConfig = {
+  apiKey: "AIzaSyCe-DH4E9CMgKmlcr3pCbvH40hu4q0P798",
+  authDomain: "maktaba-mahdawiya-f2f2e.firebaseapp.com",
+  projectId: "maktaba-mahdawiya-f2f2e",
+  storageBucket: "maktaba-mahdawiya-f2f2e.firebasestorage.app",
+  messagingSenderId: "849503316576",
+  appId: "1:849503316576:web:88be3ac2d6ff46c24db105",
+  measurementId: "G-JR1Y9ZFBCQ"
+};let allBooks = [];
 
 // جلب الفهرس من data/books.json
 document.addEventListener('DOMContentLoaded', () => {
