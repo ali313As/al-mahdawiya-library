@@ -34,7 +34,7 @@ function renderBooks(books) {
 
     books.forEach(book => {
         // تحديد مسار الملف داخل مجلد books تلقائياً
-        const filePath = book.link.startsWith('books/') ? book.link : `books/${book.link}`;
+        const filePath = book.file
 
         const card = `
             <div class="book-card" onclick="openBookText('${filePath}')">
